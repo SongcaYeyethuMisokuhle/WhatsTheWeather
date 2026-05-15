@@ -1,0 +1,60 @@
+/* Apply this style to everything on the page */
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the full page */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #e0f2fe;
+
+    /* Center the app in the middle of the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style the main white card */
+.container {
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Style the heading */
+h1 {
+    color: #0369a1;
+}
+
+/* Style the input and button area */
+form {
+    margin-top: 20px;
+}
+
+/* Style the input box */
+input {
+    padding: 12px;
+    width: 65%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Style the button */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0369a1;
+    color: white;
+    cursor: pointer;
+}
+
+/* Change button colour when the user hovers over it */
+button:hover {
+    background-color: #075985;
+}

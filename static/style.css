@@ -58,3 +58,41 @@ button {
 button:hover {
     background-color: #075985;
 }
+
+/* Style the weather result card */
+.weather-card {
+    margin-top: 25px;
+    background-color: #f0f9ff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+/* Style the city heading inside the weather card */
+.weather-card h2 {
+    color: #0369a1;
+    text-align: center;
+}
+
+/* Style the temperature so it stands out */
+.temperature {
+    font-size: 42px;
+    font-weight: bold;
+    text-align: center;
+    color: #0f172a;
+}
+
+/* Style the short summary text */
+.summary {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #334155;
+}
+
+/* Style error messages */
+.error {
+    color: #b91c1c;
+    background-color: #fee2e2;
+    padding: 10px;
+    border-radius: 8px;
+}

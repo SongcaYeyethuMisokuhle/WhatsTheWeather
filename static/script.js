@@ -12,17 +12,17 @@ weatherForm.addEventListener("submit", async function (event) {
     // Stop the page from refreshing when the form is submitted
     event.preventDefault();
 
-    // Get the city name typed by the user
+    // Get the city name typed by the user and remove extra spaces
     const city = cityInput.value.trim();
 
     // Check if the input is empty
     if (city === "") {
-        weatherResult.innerHTML = "Please enter a city name.";
+        weatherResult.innerHTML = `<p class="error">Please enter a city name.</p>`;
         return;
     }
 
-    // Show a loading message while waiting for the backend
-    weatherResult.innerHTML = "Loading weather...";
+    // Show a loading message while waiting for the backend response
+    weatherResult.innerHTML = `<p>Loading weather...</p>`;
 
     try {
         // Send the city name to our FastAPI backend
@@ -33,18 +33,31 @@ weatherForm.addEventListener("submit", async function (event) {
 
         // If the backend returns an error, show the error message
         if (!response.ok) {
-            weatherResult.innerHTML = data.detail || "Something went wrong.";
+            weatherResult.innerHTML = `<p class="error">${data.detail || "Something went wrong."}</p>`;
             return;
         }
 
-        // Display the weather data on the page
+        // Display the real weather data on the page
         weatherResult.innerHTML = `
-            <h2>${data.city}</h2>
-            <p>${data.summary}</p>
+            <div class="weather-card">
+                <h2>${data.city}, ${data.country}</h2>
+
+                <p class="temperature">
+                    ${data.temperature}${data.temperature_unit}
+                </p>
+
+                <p><strong>Humidity:</strong> ${data.humidity}%</p>
+
+                <p><strong>Wind speed:</strong> ${data.wind_speed} ${data.wind_speed_unit}</p>
+
+                <p><strong>Updated at:</strong> ${data.time}</p>
+
+                <p class="summary">${data.summary}</p>
+            </div>
         `;
 
     } catch (error) {
         // This runs if the frontend cannot connect to the backend
-        weatherResult.innerHTML = "Could not connect to the server.";
+        weatherResult.innerHTML = `<p class="error">Could not connect to the server.</p>`;
     }
 });
